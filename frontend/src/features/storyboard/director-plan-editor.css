@@ -1,0 +1,204 @@
+.director-plan-field + * {
+  margin-block-start: 2px;
+}
+
+.director-plan-event-details {
+  margin: 4px 4px 8px 1ch;
+  padding: 6px 8px;
+  border: 1px solid rgb(177 158 204 / 70%);
+  border-radius: 6px;
+  background-color: rgb(245 241 250 / 90%);
+}
+
+.dark .director-plan-event-details {
+  border-color: rgb(190 173 216 / 40%);
+  background-color: rgb(190 173 216 / 8%);
+}
+
+.director-plan-sound-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  margin-block-end: 4px;
+}
+
+.director-plan-sound-meta > .director-plan-field {
+  max-inline-size: 100%;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  text-indent: 0;
+}
+
+.director-plan-row-highlight:hover > button span {
+  color: #7c3aed;
+}
+
+.dark .director-plan-row-highlight:hover > button span {
+  color: #c4b5fd;
+}
+
+.director-plan-inline-value[contenteditable="plaintext-only"] {
+  caret-color: currentColor;
+}
+
+/* Keep an empty value clickable, including after its current text is deleted. */
+.director-plan-inline-value[contenteditable="plaintext-only"]:is([data-empty="true"], :empty) {
+  display: inline-block;
+  min-inline-size: 25px;
+  min-block-size: 1lh;
+  vertical-align: top;
+  text-indent: 0;
+}
+
+.director-plan-native-select {
+  --director-choice-bg: #ffffff;
+  --director-choice-fg: #333333;
+  --director-choice-value-fg: #7138a8;
+  --director-choice-hover-bg: #eeeeee;
+  --director-choice-active-bg: #e4d9f3;
+  --director-choice-active-fg: #522683;
+  --director-choice-border: #cccccc;
+  color-scheme: light;
+  background-color: var(--director-choice-bg);
+  color: var(--director-choice-value-fg);
+  box-sizing: border-box;
+  inline-size: 80px;
+  font: inherit;
+}
+
+.dark .director-plan-native-select {
+  --director-choice-bg: #202020;
+  --director-choice-fg: #dedede;
+  --director-choice-value-fg: #c792ea;
+  --director-choice-hover-bg: #333333;
+  --director-choice-active-bg: #393044;
+  --director-choice-active-fg: #e3c5fa;
+  --director-choice-border: #444444;
+  color-scheme: dark;
+}
+
+.director-plan-native-select--source {
+  --director-choice-value-fg: #087879;
+  --director-choice-active-fg: #075f61;
+}
+
+.dark .director-plan-native-select--source {
+  --director-choice-value-fg: #3fc6c8;
+  --director-choice-active-fg: #76dedb;
+}
+
+.director-plan-native-select option {
+  background-color: var(--director-choice-bg);
+  color: var(--director-choice-fg);
+}
+
+.director-plan-native-select option:is(:hover, :focus) {
+  background-color: var(--director-choice-hover-bg);
+  color: var(--director-choice-fg);
+}
+
+.director-plan-native-select option:checked {
+  background-color: var(--director-choice-active-bg);
+  color: var(--director-choice-active-fg);
+}
+
+.director-plan-source-field {
+  display: flex;
+  align-items: baseline;
+}
+
+.director-plan-source-field > span:not(.director-plan-source-control) {
+  flex-shrink: 0;
+}
+
+.director-plan-source-control {
+  display: inline-flex;
+  box-sizing: border-box;
+  min-inline-size: 80px;
+  max-inline-size: 40ch;
+  padding-inline: 2px;
+  vertical-align: top;
+}
+
+.director-plan-source-control > :first-child {
+  flex: 1;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+/* The source name stays editable in place; the adjacent native select supplies its choices. */
+.director-plan-native-select.director-plan-source-picker {
+  flex: 0 0 18px;
+  inline-size: 18px;
+  min-inline-size: 0;
+  block-size: 20.2px;
+  margin-inline-start: 2px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: 0;
+  line-height: 20.2px;
+  vertical-align: top;
+}
+
+.director-plan-source-picker option {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Keep the browser's select behavior while allowing its popup highlight to follow the theme. */
+@supports (appearance: base-select) {
+  .director-plan-native-select,
+  .director-plan-native-select::picker(select) {
+    appearance: base-select;
+  }
+
+  .director-plan-native-select {
+    gap: 0.25em;
+    block-size: 1lh;
+    min-block-size: 0;
+    border: 0;
+    border-radius: 0;
+    padding: 0 2px;
+    vertical-align: top;
+  }
+
+  .director-plan-native-select::picker(select) {
+    position-try-order: normal;
+    border: 1px solid var(--director-choice-border);
+    border-radius: 0;
+    padding: 0;
+    background-color: var(--director-choice-bg);
+    color: var(--director-choice-fg);
+    font: inherit;
+  }
+
+  .director-plan-native-select::picker-icon {
+    color: #737373;
+    inline-size: 18px;
+    flex-shrink: 0;
+    margin-inline-start: auto;
+    text-align: center;
+  }
+
+  .director-plan-source-picker::picker-icon {
+    margin-inline: auto;
+    font-size: 13px;
+  }
+
+  .director-plan-source-picker::picker(select) {
+    min-inline-size: max-content;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .director-plan-native-select option {
+    padding: 1px 4px;
+    font-weight: normal;
+  }
+
+  .director-plan-native-select option::checkmark {
+    display: none;
+  }
+}

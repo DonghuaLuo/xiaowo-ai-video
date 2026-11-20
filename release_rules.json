@@ -1,0 +1,30 @@
+{
+  "tasks": [],
+  "excluded": [],
+  "selected": [
+    "backend/agent_ops",
+    "backend/handlers.py",
+    "backend/main.py",
+    "backend/project_store_services",
+    "backend/public",
+    "backend/utils",
+    "frontend/.prettierrc",
+    "frontend/components.json",
+    "frontend/dist",
+    "frontend/index.html",
+    "frontend/package.json",
+    "frontend/pnpm-lock.yaml",
+    "frontend/public",
+    "frontend/src",
+    "frontend/tsconfig.json",
+    "frontend/vite.config.ts",
+    "manifest.json",
+    "LICENSE",
+    "COPYRIGHT",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md",
+    "frontend/vendor/xiaowo-sdk",
+    "scripts/check_ai_video_canvas_fast_mutations.py",
+    "frontend/pnpm-workspace.yaml"
+  ]
+}

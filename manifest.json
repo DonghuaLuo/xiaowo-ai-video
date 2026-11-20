@@ -1,0 +1,74 @@
+{
+  "id": "ai-video",
+  "version": "1.87",
+  "frontend": {
+    "entry": "frontend/dist/index.html",
+    "width": 1400,
+    "height": 960,
+    "resizable": true,
+    "maximizable": true,
+    "decorations": false
+  },
+  "backend": {
+    "type": "python",
+    "runtime": "",
+    "use_local_runtime": true,
+    "fallback_runtime": true,
+    "entry": "backend/main.py",
+    "args": [],
+    "env": {
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONNOUSERSITE": "1"
+    },
+    "pip": {
+      "claude-agent-sdk": "0.2.173",
+      "httpx": "0.28.1",
+      "pynacl": null,
+      "qiniu": "7.17.0"
+    }
+  },
+  "dev": {
+    "frontend": {
+      "entry": "auto"
+    },
+    "backend": {
+      "args": [
+        "--dev"
+      ]
+    }
+  },
+  "extmodels": {
+    "check_files": [
+      "python310/python.exe"
+    ],
+    "download_url": "https://www.xiaowoai.com/ask/info/1252"
+  },
+  "open_source": {
+    "upstream_name": "小蜗 AI Video",
+    "upstream_author": "小蜗工具",
+    "upstream_url": [
+      "https://github.com/DonghuaLuo/xiaowo-ai-video",
+      "https://gitee.com/donghuax/xiaowo-ai-video"
+    ],
+    "license_name": "GNU Affero General Public License v3.0",
+    "license_spdx": "AGPL-3.0-only",
+    "license_files": [
+      "LICENSE",
+      "frontend/vendor/xiaowo-sdk/LICENSE"
+    ],
+    "notice_files": [
+      "THIRD_PARTY_NOTICES.md"
+    ],
+    "copyright_files": [
+      "COPYRIGHT"
+    ],
+    "source_required": true,
+    "source_url": [
+      "https://github.com/DonghuaLuo/xiaowo-ai-video",
+      "https://gitee.com/donghuax/xiaowo-ai-video"
+    ],
+    "upstream_source_modified": false,
+    "modification_notice": "",
+    "modification_files": []
+  }
+}

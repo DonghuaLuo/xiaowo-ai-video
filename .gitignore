@@ -1,0 +1,26 @@
+node_modules/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.idea/
+.vscode/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+.env.*
+!.env.example
+*.log
+/backend/data/
+/backend/artifacts/
+/backend/compile/
+/backend/.venv/
+/backend/venv/
+/data/
+/artifacts/
+/提示词日志/
+
+# frontend/dist is intentionally tracked as part of the release selection.

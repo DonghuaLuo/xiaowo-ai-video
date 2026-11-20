@@ -1,0 +1,28 @@
+{
+  "name": "xiaowo-sdk",
+  "version": "1.0.0",
+  "description": "小蜗工具插件前端 SDK",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "LICENSE"
+  ],
+  "keywords": [
+    "xiaowo",
+    "plugin",
+    "sdk",
+    "tauri"
+  ],
+  "author": "小蜗工具",
+  "license": "MIT"
+}
