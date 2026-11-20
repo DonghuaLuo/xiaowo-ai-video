@@ -38,7 +38,7 @@
 
 ![图6：创建属于自己的应用](docs/images/6.jpg)
 
-2. **替换新应用的源码。** 创建完成后，在「应用开发」页面找到这个新应用，点击它的「项目目录」。清空其中的默认模板内容，保留外层目录，再把第一步获得的 `backend`、`frontend`、`manifest.json` 及许可文件复制进来，一并保留 `release_rules.json`。
+2. **替换新应用的源码。** 创建完成后，在「应用开发」页面找到这个新应用，点击它的「项目目录」。清空其中的默认模板内容，保留外层目录，再把第一步获得的 `backend`、`frontend`、`LICENSES` 三个目录及 `manifest.json` 复制进来，一并保留 `release_rules.json`。`LICENSES` 中包含 `LICENSE.txt`、`COPYRIGHT.txt` 等版权材料。
 3. **获取新应用的 ID 和公钥。** 回到「应用开发」，点击这个新应用的「开发管理」，进入管理页面，复制该应用的 **ID** 和 **公钥**。
 4. **替换两处配置。** 用刚复制的新应用 ID 替换 `manifest.json` 中的 `id`；用新应用公钥替换 `backend/utils/xiaowo_sdk.py` 中的 `public_key`。新应用目录名也应与这个 ID 一致。
 5. **启动自己的应用。** 保存后回到「应用开发」刷新，找到这个新应用，点击「启动」。按提示等待依赖准备完成，即可开始开发。
@@ -65,4 +65,4 @@
 
 ---
 
-当前源码版本 **1.87**，采用 [AGPL-3.0-only](LICENSE)。随附 SDK 的 MIT 许可及其他依赖说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+当前源码版本 **1.87**，采用 [AGPL-3.0-only](LICENSES/LICENSE.txt)。版权声明见 [COPYRIGHT.txt](LICENSES/COPYRIGHT.txt)，随附 SDK 的 MIT 许可及其他依赖说明见 [THIRD_PARTY_NOTICES.md](LICENSES/THIRD_PARTY_NOTICES.md)。

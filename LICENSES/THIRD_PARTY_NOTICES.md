@@ -7,7 +7,7 @@
 - 作者：小蜗工具
 - 来源：小蜗主工程 `packages/xiaowo-sdk`。
 - 随附源码：`frontend/vendor/xiaowo-sdk/src/index.js`、`src/index.d.ts`。
-- 许可证：MIT，全文见 [frontend/vendor/xiaowo-sdk/LICENSE](frontend/vendor/xiaowo-sdk/LICENSE)。
+- 许可证：MIT，全文见 [frontend/vendor/xiaowo-sdk/LICENSE](../frontend/vendor/xiaowo-sdk/LICENSE)。
 
 随附 SDK 的运行时代码及类型声明保持原样。为便于独立安装与构建，SDK 的包入口直接指向源码，移除了仅用于构建 SDK 的脚本和开发依赖；应用中的 SDK 依赖改为仓库内相对路径。
 

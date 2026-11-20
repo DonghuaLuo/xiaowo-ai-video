@@ -53,14 +53,14 @@
     "license_name": "GNU Affero General Public License v3.0",
     "license_spdx": "AGPL-3.0-only",
     "license_files": [
-      "LICENSE",
+      "LICENSES/LICENSE.txt",
       "frontend/vendor/xiaowo-sdk/LICENSE"
     ],
     "notice_files": [
-      "THIRD_PARTY_NOTICES.md"
+      "LICENSES/THIRD_PARTY_NOTICES.md"
     ],
     "copyright_files": [
-      "COPYRIGHT"
+      "LICENSES/COPYRIGHT.txt"
     ],
     "source_required": true,
     "source_url": [

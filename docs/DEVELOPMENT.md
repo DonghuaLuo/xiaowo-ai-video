@@ -37,7 +37,7 @@
 
 - `backend`、`frontend` 两个完整源码目录。
 - `manifest.json` 配置清单。
-- `LICENSE`、`COPYRIGHT`、`THIRD_PARTY_NOTICES.md` 等许可与版权文件，以及 `release_rules.json`。
+- 完整的 `LICENSES` 目录，其中包含 `LICENSE.txt`、`COPYRIGHT.txt` 和依赖许可说明；同时复制 `release_rules.json`。
 
 复制的是源码目录里面的内容，放好后的结构应当如下：
 
@@ -47,13 +47,16 @@ plugins_dev/
     ├── backend/
     ├── frontend/
     ├── manifest.json
-    ├── LICENSE
-    ├── COPYRIGHT
-    ├── THIRD_PARTY_NOTICES.md
+    ├── LICENSES/
+    │   ├── LICENSE.txt
+    │   ├── COPYRIGHT.txt
+    │   └── THIRD_PARTY_NOTICES.md
     └── release_rules.json
 ```
 
 应用根目录下直接放置 `backend`、`frontend` 和清单文件。从已安装应用复制时，略过 `backend/data`、缓存及 `frontend/node_modules` 等运行数据与依赖目录；自己的项目数据和模型服务配置在新应用中另行设置。
+
+应用中的版权材料统一放在 `LICENSES/`，清单的 `open_source` 路径与该目录中的文件对应。仓库根目录的 `LICENSE` 用于 Git 平台识别项目许可证；导入应用时复制完整的 `LICENSES` 目录。
 
 ### 4. 从新应用的「开发管理」获取 ID 和公钥
 
@@ -98,4 +101,4 @@ plugins_dev/
 
 ---
 
-本项目原创代码采用 **AGPL-3.0-only**，见 [LICENSE](../LICENSE) 与 [COPYRIGHT](../COPYRIGHT)。随附小蜗 SDK 保留 MIT 许可证，依赖许可说明见 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。
+本项目原创代码采用 **AGPL-3.0-only**，见 [LICENSE.txt](../LICENSES/LICENSE.txt) 与 [COPYRIGHT.txt](../LICENSES/COPYRIGHT.txt)。随附小蜗 SDK 保留 MIT 许可证，依赖许可说明见 [THIRD_PARTY_NOTICES.md](../LICENSES/THIRD_PARTY_NOTICES.md)。

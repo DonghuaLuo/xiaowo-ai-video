@@ -19,9 +19,7 @@
     "frontend/tsconfig.json",
     "frontend/vite.config.ts",
     "manifest.json",
-    "LICENSE",
-    "COPYRIGHT",
-    "THIRD_PARTY_NOTICES.md",
+    "LICENSES",
     "README.md",
     "frontend/vendor/xiaowo-sdk",
     "frontend/pnpm-workspace.yaml"
