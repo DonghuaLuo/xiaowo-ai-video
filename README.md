@@ -6,9 +6,16 @@
 
 ## 第一步：获取源码
 
-**方式一：安装应用后，从「应用管理」获取源码。**
+**方式一：直接从 Git 获取源码。**
 
-1. **[下载小蜗工具](https://www.xiaowoai.com/ask/info/94)**，在下载页选择「新版」，安装并打开。
+从下面任一仓库克隆，或下载 ZIP 并解压，即可获取源码：
+
+- [GitHub：DonghuaLuo/xiaowo-ai-video](https://github.com/DonghuaLuo/xiaowo-ai-video)
+- [Gitee：donghuax/xiaowo-ai-video](https://gitee.com/donghuax/xiaowo-ai-video)
+
+**方式二：下载小蜗工具，安装应用后获取源码。**
+
+1. 下载小蜗工具：[https://www.xiaowoai.com/ask/info/94](https://www.xiaowoai.com/ask/info/94)，选择「新版」，安装并打开。
 2. 进入「视频处理」，找到 **AI视频创作-画布工作流**，点击「安装」。
 
 ![图1：在小蜗工具中安装 AI 视频创作应用](docs/images/1.jpg)
@@ -17,11 +24,11 @@
 
 ![图2：在应用管理中打开已安装应用的目录，获取源码](docs/images/2.jpg)
 
-**方式二：直接从 Git 获取源码。**
-
-从 [GitHub](https://github.com/DonghuaLuo/xiaowo-ai-video) 或 [Gitee](https://gitee.com/donghuax/xiaowo-ai-video) 克隆或下载 ZIP 并解压。两种方式都能获取本应用源码，任选一种即可，请按相同版本对照。
+两种方式都能获取本应用源码，任选一种即可，请按相同版本对照。
 
 ## 第二步：创建自己的应用，开始开发
+
+**先下载并安装小蜗工具，已安装的直接打开。** 下载地址：[https://www.xiaowoai.com/ask/info/94](https://www.xiaowoai.com/ask/info/94)（选择「新版」）。
 
 **先在小蜗中创建应用，再导入源码。** 首次进入「应用开发」时，按提示开通开发者并初始化开发环境。
 
