@@ -1,70 +1,155 @@
-# 小蜗 AI Video
+# AI视频创作-画布工作流
 
-小蜗桌面应用中的 AI 视频创作工具，支持项目与分集规划、剧情拆分、剧本、视觉资产、分镜、图片和视频生成，以及画布工作流与创作智能体。
+在 **小蜗工具** 中，把故事、角色、分镜、图片和视频串成可视化创作工作流。你可以直接安装应用开始创作，也可以获取完整源码，在小蜗里开发属于自己的应用。
 
-当前源码版本：**1.87**。
+**[下载小蜗工具](https://www.xiaowoai.com/ask/info/94)** · **[GitHub 源码](https://github.com/DonghuaLuo/xiaowo-ai-video)** · **[Gitee 源码](https://gitee.com/donghuax/xiaowo-ai-video)**
 
-- GitHub：[DonghuaLuo/xiaowo-ai-video](https://github.com/DonghuaLuo/xiaowo-ai-video)
-- Gitee：[donghuax/xiaowo-ai-video](https://gitee.com/donghuax/xiaowo-ai-video)
-- 小蜗：[www.xiaowoai.com](https://www.xiaowoai.com/)
+当前源码版本：**1.87**。下面分两步介绍如何获取源码，以及如何将它变成自己的开发应用。
 
-## 运行环境
+## 第一步：获取源码
 
-本应用运行在小蜗桌面宿主中，前后端通过小蜗 SDK 通信。窗口、IPC、文件访问和应用管理等能力由宿主提供。图片、视频和文本模型需要自行配置相应服务及凭据。
+### 方式一：在小蜗工具中安装应用，直接获得源码（推荐）
 
-前端开发使用 Node.js 20 或更新版本和 pnpm 10.33 或更新版本；后端使用 Python 3.10 或更新版本。Python 依赖及扩展运行时配置见 `manifest.json` 中的 `backend.pip` 和 `extmodels`；媒体处理功能还依赖相应运行时中的图像处理库及 FFmpeg 等工具。
+**1. 下载并安装小蜗工具。**
 
-## 获取与开发
+打开 [小蜗工具官网下载页](https://www.xiaowoai.com/ask/info/94)，下载安装新版小蜗工具，然后启动客户端。
+
+**2. 安装「AI视频创作-画布工作流」。**
+
+进入左侧的「视频处理」，找到 **AI视频创作-画布工作流**，点击「安装」，等待下载完成。
+
+![图1：在小蜗工具的视频处理页面安装 AI视频创作-画布工作流](docs/images/1.jpg)
+
+**3. 打开应用目录，查看源码。**
+
+安装完成后进入「应用管理」，找到刚安装的应用，点击「应用目录」。打开的文件夹中就包含 `backend` 后端源码、`frontend` 前端源码和 `manifest.json` 配置清单。
+
+**安装应用后，就已经获得了一份源码。** 你可以直接阅读；准备修改和开发时，按第二步复制到自己的开发应用中。
+
+![图2：通过应用管理中的应用目录按钮打开源码所在文件夹](docs/images/2.jpg)
+
+**4. 点击「启动」，体验创作流程。**
+
+项目首页集中管理创作项目，从故事与剧本开始，逐步进入分镜、图片、视频和导出流程。
+
+![图3：启动后的 AI 视频创作应用首页](docs/images/3.jpg)
+
+角色页面集中维护角色设定、设计图、参考图和声音，方便在后续镜头中复用角色资产。
+
+![图4：角色页面展示角色设定、设计图和声音](docs/images/4.jpg)
+
+工作链画布把各创作环节及其素材连接起来，可以查看节点之间的关系，并结合智能体推进创作。模型服务及其凭据可在应用设置中配置。
+
+![图5：工作链画布与创作智能体](docs/images/5.jpg)
+
+### 方式二：从 GitHub 或 Gitee 获取源码
+
+打开 [GitHub 仓库](https://github.com/DonghuaLuo/xiaowo-ai-video) 或 [Gitee 仓库](https://gitee.com/donghuax/xiaowo-ai-video)，下载 ZIP 并解压，也可以使用 Git 克隆：
 
 ```sh
-git clone https://github.com/DonghuaLuo/xiaowo-ai-video.git ai-video
-cd ai-video/frontend
-pnpm install --frozen-lockfile
-pnpm dev
+git clone https://github.com/DonghuaLuo/xiaowo-ai-video.git
 ```
 
-也可以从 Gitee 克隆：
+国内用户也可以从 Gitee 克隆：
 
 ```sh
-git clone https://gitee.com/donghuax/xiaowo-ai-video.git ai-video
+git clone https://gitee.com/donghuax/xiaowo-ai-video.git
 ```
 
-按小蜗的应用开发流程导入应用目录。目录名应与 `manifest.json` 中的应用 ID `ai-video` 一致，当前开发者账号也需要对应的在线应用记录。需要指定本机 Python 时，在 `dev.backend` 中配置自己的 `runtime`；仓库默认继承宿主管理的运行时配置。
+两种方式获取的都是本应用的完整前后端源码，任选一种即可；需要对照代码时，请选择相同版本。获取后，确认源码根目录下直接包含 `backend`、`frontend` 和 `manifest.json`，接着按第二步导入自己的应用。
 
-浏览器开发服务器可用于界面开发，完整业务交互需要在小蜗宿主中运行。API Key 和项目数据通过应用配置管理，保存在运行时数据目录中。
+## 第二步：创建应用并导入源码，开始开发
 
-构建前端：
+### 1. 先在小蜗工具中创建自己的应用
 
-```sh
-cd frontend
-pnpm build
+登录小蜗工具，进入左侧「应用开发」。首次使用时，按客户端提示开通开发者并完成开发环境初始化，然后点击右上角的「创建应用」。
+
+按照图6填写：
+
+- **分类**：选择「视频处理」。
+- **ID**：填写一个未被占用的新 ID，例如 `my-ai-video`。以字母开头，可使用字母、数字和连字符，不能以连字符结尾。
+- **标题与描述**：填写自己的应用名称和功能介绍。
+- **前端类型**：选择图中的「主题React」，后端使用默认的 Python。
+
+点击「创建应用」，等待创建完成。
+
+![图6：在应用开发页面创建属于自己的应用](docs/images/6.jpg)
+
+**这一步会在服务端创建属于当前账号的应用记录，同时在本机生成对应的模板目录。** 创建成功后，应用就会出现在「应用开发」列表中；后续导入源码，是为这条应用记录替换本地程序。只有本地文件、没有当前账号对应的服务端应用记录，无法完成这条开发流程。
+
+### 2. 打开新应用的项目目录，清空默认模板
+
+在「应用开发」列表中找到刚创建的应用，点击「项目目录」。以 `my-ai-video` 为例，打开的是小蜗数据目录下的 `plugins_dev/my-ai-video`。
+
+清空这个新应用目录中的默认模板内容，保留外层的 `my-ai-video` 文件夹，接下来把获取到的源码放进这里。
+
+### 3. 将获取到的源码复制进来
+
+从第一步得到的源码目录中，将以下内容复制到新应用的项目目录：
+
+- `backend`、`frontend` 两个完整源码目录。
+- `manifest.json` 配置清单。
+- `LICENSE`、`COPYRIGHT`、`THIRD_PARTY_NOTICES.md` 等许可与版权文件，以及 `release_rules.json`。
+
+复制的是源码目录里面的内容，放好后的结构应当如下：
+
+```text
+plugins_dev/
+└── my-ai-video/
+    ├── backend/
+    ├── frontend/
+    ├── manifest.json
+    ├── LICENSE
+    ├── COPYRIGHT
+    ├── THIRD_PARTY_NOTICES.md
+    └── release_rules.json
 ```
 
-构建结果写入 `frontend/dist`。仓库保留了这一目录，供宿主按 `frontend.entry` 加载。需要修改界面时，应编辑 `frontend/src` 后重新构建。
+应用根目录下直接放置 `backend`、`frontend` 和清单文件。从已安装应用复制时，略过 `backend/data`、缓存及 `frontend/node_modules` 等运行数据与依赖目录；自己的项目数据和模型服务配置在新应用中另行设置。
 
-现有画布接口检查：
+### 4. 将配置清单的 ID 改为新应用 ID
 
-```sh
-python scripts/check_ai_video_canvas_fast_mutations.py
+打开新应用根目录的 `manifest.json`，将根节点的 `id` 从 `ai-video` 改为创建应用时填写的 ID：
+
+```diff
+-  "id": "ai-video",
++  "id": "my-ai-video",
 ```
 
-## 源码范围
+保留清单中的其他运行配置。创建时小蜗已经按新 ID 生成了目录，导入后确认以下三处一致：
 
-本仓库依据 1.87 版本的 `release_rules.json` 整理，包含：
+| 位置 | 本例中的值 |
+| --- | --- |
+| 小蜗中创建的应用 ID | `my-ai-video` |
+| 项目目录名 | `my-ai-video` |
+| `manifest.json` 的 `id` | `my-ai-video` |
 
-- `backend/main.py`、`backend/handlers.py`：后端入口和 IPC handler。
-- `backend/project_store_services`、`backend/utils`：业务服务、模型接入与公共工具。
-- `backend/agent_ops`：创作智能体 Skill、导演规则和权限配置。
-- `backend/public`：随应用分发的静态资源。
-- `frontend/src`、`frontend/public`、`frontend/dist`：前端源码、资源和构建产物。
-- 前端构建配置、依赖锁文件及应用清单。
+### 5. 配置新应用的后端 SDK 公钥
 
-同时附带前端所需的小蜗 SDK 源码（`frontend/vendor/xiaowo-sdk`），依赖引用已调整到仓库内。后端源码以普通目录保存，克隆时无需配置外部符号链接。
+每个应用都有自己的公钥，用于校验宿主发给后端的调用。导入源码后，需要将原应用的公钥换成新应用的公钥：
 
-本地项目数据、模型服务凭据、提示词运行日志、诊断产物、缓存和 `node_modules` 不随源码上传。`release_rules.json` 保留发布选择，并补充许可证、版权说明和 SDK 源码，便于后续分发时保留这些材料。
+1. 回到「应用开发」，在新应用卡片上点击「开发管理」。
+2. 找到「公钥」，点击复制。
+3. 打开新应用中的 `backend/utils/xiaowo_sdk.py`，找到 `public_key` 赋值行，将引号中的内容替换为刚复制的新应用公钥，保留其余代码。
 
-## 许可证
+这一步让复制后的后端与自己的新应用正确关联。
 
-本项目原创代码采用 **GNU Affero General Public License v3.0 only（AGPL-3.0-only）**，许可证全文见 [LICENSE](LICENSE)，程序版权与许可声明见 [COPYRIGHT](COPYRIGHT)。
+### 6. 刷新应用列表，启动并开始修改
 
-随附的小蜗 SDK 保留 MIT 许可证。其他依赖各自的许可和归属说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+保存文件，回到「应用开发」点击刷新。小蜗识别到新目录中有效的配置清单后，就可以从这张应用卡片点击「启动」，运行自己的开发版本。
+
+保留清单中的 `dev.frontend.entry` 为 `"auto"`。小蜗启动开发应用时会检查前端依赖，按需安装并启动前端开发服务器；首次启动请等待终端中的依赖安装与启动过程完成，并保持该开发终端运行。后端依赖和扩展运行时按客户端提示准备。
+
+接下来即可在自己的项目目录中开发：
+
+- 修改 `frontend/src` 中的界面代码，通过开发服务器查看更新。
+- 修改 `backend` 中的业务逻辑后，重启开发应用查看效果。
+- 应用标题、描述和图标等资料，在自己的「开发管理」中维护。
+
+本仓库前端已随附小蜗 SDK，引用位于 `frontend/vendor/xiaowo-sdk`。若使用安装版源码，前端仍引用 `link:../../../packages/xiaowo-sdk` 且本机缺少该目录，可从本仓库一并复制 `frontend/vendor`、`frontend/package.json`、`frontend/pnpm-lock.yaml` 和 `frontend/pnpm-workspace.yaml`，使用仓库内的 SDK 依赖配置。
+
+准备分发修改后的前端时，在该应用的 `frontend` 目录执行 `pnpm build`，生成的页面会写入 `frontend/dist`。完整应用通过小蜗宿主运行和调试。
+
+---
+
+本项目原创代码采用 **AGPL-3.0-only**，见 [LICENSE](LICENSE) 与 [COPYRIGHT](COPYRIGHT)。随附小蜗 SDK 保留 MIT 许可证，依赖许可说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
