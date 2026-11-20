@@ -30,6 +30,8 @@
 
 **先下载并安装小蜗工具，已安装的直接打开。** 下载地址：[https://www.xiaowoai.com/ask/info/94](https://www.xiaowoai.com/ask/info/94)（选择「新版」）。
 
+小蜗官网应用快速开发指南：[https://www.xiaowoai.com/ask/devdoc/55](https://www.xiaowoai.com/ask/devdoc/55)。
+
 **先在小蜗中创建应用，再导入源码。** 首次进入「应用开发」时，按提示开通开发者并初始化开发环境。
 
 1. **创建应用。** 进入「应用开发」→「创建应用」，填写自己的名称和新 ID（如 `my-ai-video`），分类选择「视频处理」，前端选择「主题React」，后端使用 Python。

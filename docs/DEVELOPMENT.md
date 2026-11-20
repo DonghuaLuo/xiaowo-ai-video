@@ -4,6 +4,8 @@
 
 开发前先下载并安装小蜗工具，已安装的直接打开。下载地址：[https://www.xiaowoai.com/ask/info/94](https://www.xiaowoai.com/ask/info/94)（选择「新版」）。
 
+小蜗官网应用快速开发指南：[https://www.xiaowoai.com/ask/devdoc/55](https://www.xiaowoai.com/ask/devdoc/55)。
+
 下面进入「应用开发」，创建自己的新应用，再把获取到的源码导入这个新应用的「项目目录」。
 
 ### 1. 先在小蜗工具中创建自己的应用
