@@ -32,6 +32,8 @@
       "entry": "auto"
     },
     "backend": {
+      "runtime": ".venv/Scripts/python.exe",
+      "use_local_runtime": false,
       "args": [
         "--dev"
       ]

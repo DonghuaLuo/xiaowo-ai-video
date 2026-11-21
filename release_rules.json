@@ -19,6 +19,7 @@
     "frontend/tsconfig.json",
     "frontend/vite.config.ts",
     "manifest.json",
+    "requirements.txt",
     "LICENSES",
     "README.md",
     "frontend/vendor/xiaowo-sdk",

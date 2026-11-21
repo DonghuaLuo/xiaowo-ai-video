@@ -38,10 +38,18 @@
 
 ![图6：创建属于自己的应用](docs/images/6.jpg)
 
-2. **替换新应用的源码。** 创建完成后，在「应用开发」页面找到这个新应用，点击它的「项目目录」。清空其中的默认模板内容，保留外层目录，再把第一步获得的 `backend`、`frontend`、`LICENSES` 三个目录及 `manifest.json` 复制进来，一并保留 `release_rules.json`。`LICENSES` 中包含 `LICENSE.txt`、`COPYRIGHT.txt` 等版权材料。
+2. **替换新应用的源码。** 创建完成后，在「应用开发」页面找到这个新应用，点击它的「项目目录」。清空其中的默认模板内容，保留外层目录，再把第一步获得的 `backend`、`frontend`、`LICENSES` 三个目录及 `manifest.json` 复制进来，一并保留 `requirements.txt` 和 `release_rules.json`。`LICENSES` 中包含 `LICENSE.txt`、`COPYRIGHT.txt` 等版权材料。
 3. **获取新应用的 ID 和公钥。** 回到「应用开发」，点击这个新应用的「开发管理」，进入管理页面，复制该应用的 **ID** 和 **公钥**。
 4. **替换两处配置。** 用刚复制的新应用 ID 替换 `manifest.json` 中的 `id`；用新应用公钥替换 `backend/utils/xiaowo_sdk.py` 中的 `public_key`。新应用目录名也应与这个 ID 一致。
-5. **启动自己的应用。** 保存后回到「应用开发」刷新，找到这个新应用，点击「启动」。按提示等待依赖准备完成，即可开始开发。
+5. **配置开发后端 Python，并安装依赖。** 准备 Python 3.10，在新应用的项目根目录打开 PowerShell，创建独立环境并安装依赖：
+
+   ```powershell
+   py -3.10 -m venv .venv
+   & ".\.venv\Scripts\python.exe" -m pip install -r requirements.txt
+   ```
+
+   将 `manifest.json` 的 `dev.backend.runtime` 设为 `.venv/Scripts/python.exe`，同时设置 `dev.backend.use_local_runtime` 为 `false`（仓库已配置）。如果使用已有 Python 环境，改填它的 `python.exe` 路径，并用**同一个 Python** 执行上面的依赖安装命令。依赖清单由 Windows / Python 3.10.20 环境导出；安装版源码若缺少该文件，可从本仓库获取 [requirements.txt](requirements.txt)。
+6. **启动自己的应用。** 保存后回到「应用开发」刷新，找到这个新应用，点击「启动」。等待前端依赖准备完成，即可开始开发。
 
 修改界面从 `frontend/src` 开始，修改后端逻辑从 `backend` 开始。自己的应用名称、描述和图标在「开发管理」中设置。
 

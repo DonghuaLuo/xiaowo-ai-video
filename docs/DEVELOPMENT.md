@@ -37,6 +37,7 @@
 
 - `backend`、`frontend` 两个完整源码目录。
 - `manifest.json` 配置清单。
+- `requirements.txt` 后端 Python 依赖清单；安装版目录中若没有该文件，请从 [本仓库](../requirements.txt) 补齐。
 - 完整的 `LICENSES` 目录，其中包含 `LICENSE.txt`、`COPYRIGHT.txt` 和依赖许可说明；同时复制 `release_rules.json`。
 
 复制的是源码目录里面的内容，放好后的结构应当如下：
@@ -47,6 +48,7 @@ plugins_dev/
     ├── backend/
     ├── frontend/
     ├── manifest.json
+    ├── requirements.txt
     ├── LICENSES/
     │   ├── LICENSE.txt
     │   ├── COPYRIGHT.txt
@@ -54,7 +56,7 @@ plugins_dev/
     └── release_rules.json
 ```
 
-应用根目录下直接放置 `backend`、`frontend` 和清单文件。从已安装应用复制时，略过 `backend/data`、缓存及 `frontend/node_modules` 等运行数据与依赖目录；自己的项目数据和模型服务配置在新应用中另行设置。
+应用根目录下直接放置 `backend`、`frontend` 和清单文件。从已安装应用复制时，略过 `.venv`、`backend/data`、缓存及 `frontend/node_modules` 等运行数据与依赖目录；自己的项目数据和模型服务配置在新应用中另行设置。
 
 应用中的版权材料统一放在 `LICENSES/`，清单的 `open_source` 路径与该目录中的文件对应。仓库根目录的 `LICENSE` 用于 Git 平台识别项目许可证；导入应用时复制完整的 `LICENSES` 目录。
 
@@ -71,7 +73,7 @@ plugins_dev/
 +  "id": "my-ai-video",
 ```
 
-保留清单中的其他运行配置。创建时小蜗已经按新 ID 生成了目录，导入后确认以下三处一致：
+创建时小蜗已经按新 ID 生成了目录，导入后确认以下三处一致：
 
 | 位置 | 本例中的值 |
 | --- | --- |
@@ -83,11 +85,45 @@ plugins_dev/
 
 完成这两处替换后，导入的源码就使用了新应用的 ID 和公钥。
 
-### 6. 刷新应用列表，启动并开始修改
+### 6. 指定开发后端的 Python，并安装依赖
+
+准备 Python 3.10，在新应用的项目根目录打开 PowerShell，执行：
+
+```powershell
+py -3.10 -m venv .venv
+& ".\.venv\Scripts\python.exe" -m pip install -r requirements.txt
+```
+
+这会在当前项目的 `.venv` 目录创建独立 Python 环境，并安装 [requirements.txt](../requirements.txt) 中的依赖。该文件由本地 Windows / Python 3.10.20 开发后端环境导出，锁定了当前安装版本，排除了仅用于本机环境打包的 Conda 路径项。
+
+打开 `manifest.json`，将 `dev.backend` 配置为：
+
+```json
+"dev": {
+  "frontend": {
+    "entry": "auto"
+  },
+  "backend": {
+    "runtime": ".venv/Scripts/python.exe",
+    "use_local_runtime": false,
+    "args": ["--dev"]
+  }
+}
+```
+
+仓库已提供上述配置。`runtime` 相对于应用项目根目录解析，也可以填写已有环境的绝对路径，例如 `D:/PythonEnvs/my-ai-video/python.exe`。使用已有环境时，略过创建 `.venv` 的命令，改用该 Python 安装依赖：
+
+```powershell
+& "D:/PythonEnvs/my-ai-video/python.exe" -m pip install -r requirements.txt
+```
+
+请按本机实际位置修改路径。**安装依赖所用的 Python 必须与 `dev.backend.runtime` 指向同一个解释器。** `use_local_runtime: false` 使开发后端使用这里指定的路径；该开发配置会覆盖正式的 `backend` 配置。修改后保存清单，刷新应用开发列表并重新启动应用。
+
+### 7. 刷新应用列表，启动并开始修改
 
 保存文件，回到「应用开发」点击刷新，找到刚创建的新应用，点击它的「启动」，运行自己的开发版本。
 
-保留清单中的 `dev.frontend.entry` 为 `"auto"`。小蜗启动开发应用时会检查前端依赖，按需安装并启动前端开发服务器；首次启动请等待终端中的依赖安装与启动过程完成，并保持该开发终端运行。后端依赖和扩展运行时按客户端提示准备。
+保留清单中的 `dev.frontend.entry` 为 `"auto"`。小蜗启动开发应用时会检查前端依赖，按需安装并启动前端开发服务器；首次启动请等待终端中的依赖安装与启动过程完成，并保持该开发终端运行。开发后端使用上一步配置的 Python，请提前在该环境安装后端依赖。
 
 接下来即可在自己的项目目录中开发：
 

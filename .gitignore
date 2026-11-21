@@ -19,6 +19,7 @@ desktop.ini
 /backend/compile/
 /backend/.venv/
 /backend/venv/
+/.venv/
 /data/
 /artifacts/
 /提示词日志/
